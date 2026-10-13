@@ -1,0 +1,55 @@
+.project-art { height: 100%; min-height: 310px; position: relative; display: grid; place-items: center; overflow: hidden; color: #263a31; }
+.art-inventory { background: #d9e5d5; --mock-accent: #528066; --mock-tint: #e7f0e8; }
+.art-personnel { background: #e6dfd2; --mock-accent: #8d7861; --mock-tint: #f2eee7; }
+.art-performance { background: #d6dfe8; --mock-accent: #6587ab; --mock-tint: #e9eef4; }
+.art-queue { background: #ead9d2; --mock-accent: #a37062; --mock-tint: #f4e9e4; }
+.art-attendance { background: #dedbed; --mock-accent: #8174a3; --mock-tint: #eeebf5; }
+.art-queue .art-window { transform: rotate(3deg); }
+.mock-queue { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 13px; }
+.mock-queue>div { border: 1px solid #eaded8; padding: 7px; border-radius: 4px; }
+.mock-queue small { display: block; text-align: center; font-size: 6px; color: var(--mock-accent); margin-bottom: 7px; }
+.mock-queue b { display: block; margin-top: 5px; padding: 5px; background: var(--mock-tint); color: var(--mock-accent); font: 7px var(--mono); text-align: center; border-radius: 3px; }
+.mock-queue-footer { margin-top: 8px; text-align: center; font-size: 5px; color: #93796f; }
+.mock-filters { display: flex; gap: 5px; margin: 16px 0 11px; font-size: 5px; color: #887e99; }
+.mock-filters span { border: 1px solid #e3dfed; border-radius: 2px; padding: 4px; flex: 1; }
+.mock-filters b { font-weight: 400; background: var(--mock-accent); color: white; border-radius: 2px; padding: 5px; }
+.art-grid { position: absolute; inset: 0; background-image: linear-gradient(#40504508 1px,transparent 1px),linear-gradient(90deg,#40504508 1px,transparent 1px); background-size: 22px 22px; }
+.art-window { width: 89%; height: 206px; border-radius: 6px; background: #fdfefd; box-shadow: 0 18px 35px #22312824; border: 1px solid #ffffffb3; position: relative; transform: rotate(-4deg); overflow: hidden; }
+.art-personnel .art-window { transform: rotate(3deg); }
+.art-performance .art-window { transform: rotate(-3deg); }
+.mock-browser { height: 22px; display: flex; align-items: center; justify-content: space-between; padding: 0 9px; background: #f3f5f2; border-bottom: 1px solid #e1e6df; color: #8d998f; font: 5px var(--mono); }
+.mock-browser>span:first-child { letter-spacing: 1px; font-size: 5px; }
+.mock-app { display: flex; height: calc(100% - 22px); }
+.mock-sidebar { width: 37px; background: var(--mock-tint); border-right: 1px solid #d8e1d6; padding: 10px 6px; flex-shrink: 0; }
+.mock-logo { font-weight: 750; font-size: 12px; display: block; color: var(--mock-accent); text-align: center; margin-bottom: 16px; }
+.mock-sidebar i { height: 5px; display: block; background: #afbcaf70; border-radius: 2px; margin-bottom: 11px; }
+.mock-sidebar .selected { background: var(--mock-accent); }
+.mock-content { padding: 13px 10px; flex: 1; min-width: 0; }
+.mock-heading { font-weight: 650; font-size: 8px; display: flex; justify-content: space-between; align-items: center; gap: 3px; }
+.mock-heading>span { font-weight: 400; font-size: 5px; padding: 2px 3px; background: var(--mock-tint); border-radius: 2px; }
+.mock-stats { display: flex; gap: 5px; margin: 13px 0 12px; }
+.mock-stats>i { flex: 1; border: 1px solid #e0e6de; border-radius: 3px; padding: 6px; font-style: normal; }
+.mock-stats small { font-size: 5px; color: #839185; display: block; }
+.mock-stat-line { width: 18px; height: 6px; border-radius: 2px; background: var(--mock-accent); display: block; opacity: .5; margin-top: 6px; }
+.mock-table { border: 1px solid #e0e6de; border-radius: 3px; overflow: hidden; }
+.mock-table>div { display: grid; grid-template-columns: 1fr 1fr 34px; gap: 8px; padding: 6px; align-items: center; border-bottom: 1px solid #e0e6de; font-size: 5px; }
+.mock-table>div:first-child { background: #f5f7f4; color: #758777; }
+.mock-table>div:last-child { border: 0; }
+.mock-table i { background: #d9e1d7; height: 3px; width: 85%; border-radius: 2px; }
+.mock-table b { font-size: 4px; font-weight: 400; background: var(--mock-tint); color: var(--mock-accent); padding: 2px; text-align: center; border-radius: 2px; }
+.mock-people { display: flex; gap: 5px; margin: 12px 0 11px; }
+.mock-people>div { flex: 1; border: 1px solid #e4e0d8; border-radius: 4px; padding: 7px 3px; text-align: center; }
+.person-circle { width: 19px; height: 19px; border-radius: 50%; background: var(--mock-tint); display: block; margin: 0 auto 5px; position: relative; }
+.person-circle::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--mock-accent); opacity: .5; position: absolute; top: 4px; left: 6px; box-shadow: 0 6px 0 2px var(--mock-accent); }
+.mock-people i { display: block; width: 19px; height: 3px; background: #d9d3c8; margin: 4px auto; }
+.mock-people small { display: block; font-size: 4px; color: #a19482; }
+.mock-legend { display: flex; gap: 9px; font-size: 5px; color: #7c8998; margin-top: 14px; }
+.mock-legend span::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 1px; background: var(--mock-accent); margin-right: 3px; }
+.mock-legend span:nth-child(2)::before { background: #b7c9d8; }
+.mock-chart { height: 97px; display: flex; align-items: flex-end; justify-content: space-around; border-bottom: 1px solid #d7e1e7; background: repeating-linear-gradient(to top,transparent 0,transparent 23px,#edf1f5 23px,#edf1f5 24px); padding: 0 3px; margin-top: 6px; }
+.mock-chart>div { display: flex; align-items: flex-end; gap: 3px; height: 60%; width: 18px; }
+.mock-chart>div:nth-child(2) { height: 78%; }.mock-chart>div:nth-child(3) { height: 48%; }.mock-chart>div:nth-child(4) { height: 85%; }.mock-chart>div:nth-child(5) { height: 68%; }.mock-chart>div:nth-child(6) { height: 92%; }
+.mock-chart i,.mock-chart b { display: block; flex: 1; height: 100%; background: var(--mock-accent); border-radius: 2px 2px 0 0; }
+.mock-chart b { height: 73%; background: #b7c9d8; }
+.mock-chart-label { text-align: center; font-size: 5px; color: #8292a2; padding-top: 6px; }
+.art-caption { position: absolute; bottom: 14px; left: 16px; font: 6px var(--mono); letter-spacing: 1.2px; color: #425348; opacity: .75; }

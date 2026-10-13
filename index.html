@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pamela Rose's development portfolio. Explore ETAMS, CARPIS, PMS, Queuing System, and Time Monitoring: applications for organized everyday workflows.">
+  <meta name="color-scheme" content="light dark">
+  <title>Pamela Rose · Developer portfolio</title>
+  <link rel="stylesheet" href="./styles.css?v=3">
+  <script src="./projects.js?v=3" defer></script>
+  <script src="./script.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 20"/></symbol>
+    <symbol id="book" viewBox="0 0 24 24"><path d="M5 3h14v18H5a3 3 0 0 1 0-6h14M5 3v12m4-8h6"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+  </svg>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Portfolio home"><span class="brand-mark">pr<span>.</span></span><span><strong id="header-username">Pammyrose</strong><small>DEVELOPER PORTFOLIO</small></span></a>
+    <div class="header-actions"><nav class="header-nav" aria-label="Main navigation"><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Connect</a></nav><button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg class="icon"><use href="#sun"/></svg></button></div>
+  </header>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy"><div class="eyebrow"><span class="green-dot"></span>THOUGHTFUL CODE. PRACTICAL SOLUTIONS.</div><p class="hero-greeting">Hello, I'm <span id="hero-name">Pamela Rose</span>.</p><h1 id="hero-title">I build software<br>that makes work<br><em>a little easier.</em></h1><p class="hero-description">Bringing clarity to everyday workflows through useful web applications and considered interfaces.</p><div class="hero-actions"><a class="primary-button" href="#projects">View selected work <svg class="icon"><use href="#arrow"/></svg></a><a id="hero-github" class="secondary-button" href="https://github.com/Pammyrose" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#code"/></svg>My GitHub ↗</a></div><div class="hero-caption"><span class="tiny-code">&lt;/&gt;</span>Laravel & Vue · From backend logic to interface details</div></div>
+    <div class="hero-visual"><div class="portrait-backdrop" aria-hidden="true"></div><div class="portrait-frame"><div class="portrait-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>meet-the-developer</span><svg class="icon" aria-hidden="true"><use href="#code"/></svg></div><div class="avatar"><span id="initials" aria-hidden="true">PR</span><img id="profile-photo" src="./assets/profile.png" alt="Pamela Rose profile photo" width="400" height="400" fetchpriority="high"></div><div class="portrait-footer"><span>Code with intention.</span><span class="portrait-spark" aria-hidden="true">✦</span></div></div><div class="project-summary"><span class="summary-icon"><svg class="icon" aria-hidden="true"><use href="#book"/></svg></span><span><strong><span id="hero-project-total">6</span> projects to explore</strong><small>Built around everyday problems.</small></span><a href="#projects" aria-label="Explore the project collection">↗</a></div></div>
+  </section>
+  <div class="stack-strip" aria-label="Core technologies"><span>MY BUILDING BLOCKS</span><strong>Laravel</strong><span class="strip-separator">/</span><strong>Vue.js</strong><span class="strip-separator">/</span><strong>TypeScript</strong><span class="strip-separator">/</span><strong>PHP</strong><span class="strip-separator">/</span><strong>Tailwind CSS</strong></div>
+  <div class="page-layout">
+    <aside class="profile" aria-label="About the creator">
+      <div class="profile-label"><svg class="icon" aria-hidden="true"><use href="#code"/></svg>THE DEVELOPER</div>
+      <h2 id="profile-name">Pamela Rose</h2>
+      <p id="profile-username" class="username">Pammyrose</p>
+      <p id="profile-bio" class="bio">Building practical web applications that connect people, information, and everyday workflows.</p>
+      <a id="profile-github" class="profile-button" href="https://github.com/Pammyrose" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a>
+      <div class="profile-divider"></div>
+      <h2 class="sidebar-heading">The toolkit</h2>
+      <div id="toolkit" class="toolkit"></div>
+      <div class="sidebar-note"><span class="green-dot"></span><span>Always a work in progress.</span></div>
+    </aside>
+    <main id="projects">
+      <nav class="project-tabs" aria-label="Portfolio sections"><a class="active-tab" href="#projects"><svg class="icon"><use href="#book"/></svg>Selected work <span id="project-count" class="count">0</span></a><a href="#about">About me</a><span class="tab-note">Built with purpose.</span></nav>
+      <div class="work-intro"><div><div class="eyebrow">01 / SELECTED WORK</div><h2>A few things<br>I've been building<span>.</span></h2></div><p>From asset records to attendance, these projects turn complex workflows into practical tools.</p></div>
+      <div class="section-title"><h2><svg class="icon"><use href="#grid"/></svg>The project collection</h2><span id="results-count" aria-live="polite"></span></div>
+      <div class="filters">
+        <label class="search-field"><svg class="icon"><use href="#search"/></svg><span class="sr-only">Search projects</span><input id="project-search" type="search" placeholder="Find a project…" autocomplete="off"></label>
+        <label><span class="sr-only">Filter by language</span><select id="language-filter"><option value="all">All languages</option></select></label>
+        <label><span class="sr-only">Sort projects</span><select id="project-sort"><option value="featured">Featured first</option><option value="name">Name: A–Z</option></select></label>
+      </div>
+      <p id="sample-note" class="sample-note">Example collection · Replace these projects with your own in <code>projects.js</code>.</p>
+      <div id="project-grid" class="project-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><svg class="icon"><use href="#search"/></svg><h3>No projects found</h3><p>Try another search or language.</p><button id="reset-filters" class="profile-button" type="button">Clear filters</button></div>
+      <noscript><p>Enable JavaScript to browse the project collection.</p></noscript>
+      <section id="about" class="about-section" aria-labelledby="about-title"><div class="eyebrow">02 / BEHIND THE CODE</div><h2 id="about-title">A builder with an eye<br>for the everyday details.</h2><p class="about-lead">My work brings together the logic behind a system and the interface people use to navigate it.</p><p>My projects explore different sides of everyday work: keeping track of assets, organizing personnel information, reviewing performance, managing order queues, and monitoring attendance. Across these projects, I work with Laravel, Vue, PHP, and familiar web technologies to connect data with practical workflows.</p><div class="approach-grid"><div><span>01</span><h3>Understand the workflow</h3><p>Start with the records, roles, and tasks the application needs to support.</p></div><div><span>02</span><h3>Make it manageable</h3><p>Bring structure to information through focused screens and clear navigation.</p></div><div><span>03</span><h3>Connect the pieces</h3><p>Build the interface and backend around the same practical purpose.</p></div></div></section>
+    </main>
+  </div>
+  <section id="contact" class="contact-section" aria-labelledby="contact-title"><div><div class="eyebrow">03 / KEEP IN TOUCH</div><h2 id="contact-title">There's always<br>something next to build.</h2><p>Explore the code, follow the progress, and see where the next idea goes.</p></div><button id="contact-email" class="primary-button" type="button" aria-haspopup="dialog">Let's talk <svg class="icon"><use href="#arrow"/></svg></button><span class="contact-decoration" aria-hidden="true">✦</span></section>
+  <footer class="site-footer"><span>© <span id="year"></span> <span id="footer-name">Pamela Rose</span></span><span>Built with care. Shared on the web.</span><a href="#projects">Back to projects ↑</a></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-heading"><span class="eyebrow">PROJECT CASE STUDY</span><button id="close-dialog" class="icon-button" type="button" aria-label="Close project details">✕</button></div><div id="dialog-art" class="dialog-art"></div><div class="dialog-content"><span id="dialog-category" class="eyebrow"></span><h2 id="dialog-title"></h2><p id="dialog-description"></p><h3>The purpose</h3><p id="dialog-purpose"></p><section id="dialog-workflow-section" aria-labelledby="dialog-workflow-title" hidden><h3 id="dialog-workflow-title">How it works</h3><ol id="dialog-workflow" class="workflow-steps"></ol></section><h3>Features</h3><ul id="dialog-features"></ul><h3>Technology stack</h3><div id="dialog-tags" class="toolkit"></div><div id="dialog-links" class="dialog-links"></div><p id="dialog-example" class="sample-note"></p></div></dialog>
+<dialog id="email-dialog" aria-labelledby="email-dialog-title"><div class="dialog-heading"><span class="eyebrow">GET IN TOUCH</span><button id="close-email-dialog" class="icon-button" type="button" aria-label="Close email details">✕</button></div><div class="dialog-content"><h2 id="email-dialog-title">Let's talk</h2><p>Have a project in mind? Copy my email and send me a message.</p><label class="email-label" for="email-address">Email address</label><input id="email-address" class="email-address" type="text" value="emalasan37@gmail.com" readonly><button id="copy-email" class="primary-button" type="button">Copy email</button><p id="email-copy-status" role="status" aria-live="polite"></p></div></dialog>
+</body>
+</html>
