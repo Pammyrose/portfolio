@@ -14,8 +14,6 @@ profilePhoto.addEventListener("error", () => { profilePhoto.hidden = true; });
 if (profilePhoto.complete && !profilePhoto.naturalWidth) profilePhoto.hidden = true;
 setText("footer-name", profile.name);
 setText("year", new Date().getFullYear());
-setText("project-count", profile.projects.length);
-setText("hero-project-total", profile.projects.length);
 setText("hero-name", profile.name);
 for (const id of ["hero-github", "profile-github"]) {
   $(id).href = `https://github.com/${encodeURIComponent(profile.username)}`;
@@ -174,13 +172,12 @@ function createCard(project) {
   const card = document.createElement("article");
   card.className = "project-card";
   // Customizable project text is assigned with textContent.
-  card.innerHTML = `<div class="card-preview"></div><div class="card-body"><div class="card-top"><span class="project-number"></span><span class="category"></span><span class="featured-badge">Public</span></div><h3><button class="project-name" type="button"></button><span class="project-title-arrow" aria-hidden="true">↗</span></h3><p class="project-subtitle"></p><p class="project-description"></p><div class="card-features"><h4>Features</h4><ul></ul></div><div class="project-tags"></div><div class="card-actions"><button class="case-study-button" type="button">View case study <span aria-hidden="true">↗</span></button></div><div class="card-meta"><span class="language"><span class="language-dot"></span><span class="language-name"></span></span><span>GitHub repository</span></div></div>`;
+  card.innerHTML = `<div class="card-preview"></div><div class="card-body"><div class="card-top"><span class="category"></span><span class="featured-badge">Public</span></div><h3><button class="project-name" type="button"></button><span class="project-title-arrow" aria-hidden="true">↗</span></h3><p class="project-subtitle"></p><p class="project-description"></p><div class="card-features"><h4>Features</h4><ul></ul></div><div class="project-tags"></div><div class="card-actions"><button class="case-study-button" type="button">View case study <span aria-hidden="true">↗</span></button></div><div class="card-meta"><span class="language"><span class="language-dot"></span><span class="language-name"></span></span><span>GitHub repository</span></div></div>`;
   card.querySelector(".card-preview").append(createPreview(project));
   const button = card.querySelector(".project-name");
   button.textContent = project.name;
   button.addEventListener("click", () => openProject(project));
   card.querySelector(".case-study-button").addEventListener("click", () => openProject(project));
-  card.querySelector(".project-number").textContent = String(profile.projects.indexOf(project) + 1).padStart(2, "0");
   card.querySelector(".project-subtitle").textContent = project.subtitle || project.category;
   card.querySelector(".project-description").textContent = project.description;
   const highlights = project.highlights || (project.features || []).slice(0, 3);
@@ -226,7 +223,7 @@ function renderProjects() {
     ? (a, b) => a.name.localeCompare(b.name)
     : (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
   $("project-grid").replaceChildren(...visible.map(createCard));
-  setText("results-count", `${visible.length} ${visible.length === 1 ? "project" : "projects"}`);
+  setText("results-count", visible.length === 0 ? "No matching projects" : query || language !== "all" ? "Showing matching projects" : "");
   $("empty-state").hidden = visible.length !== 0;
 }
 $("project-search").addEventListener("input", renderProjects);
