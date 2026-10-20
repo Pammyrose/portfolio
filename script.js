@@ -277,3 +277,19 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 updateNavigation();
 renderProjects();
+
+// Repeat logos visually for the loop, while keeping one accessible tool list.
+const stackStrip = document.querySelector(".stack-strip");
+const stackGroup = stackStrip.querySelector(".stack-group");
+const stackCopy = stackGroup.cloneNode(true);
+stackCopy.removeAttribute("aria-label");
+stackCopy.setAttribute("aria-hidden", "true");
+stackGroup.after(stackCopy);
+stackStrip.classList.add("is-animated");
+const stackMotion = $("stack-motion");
+stackMotion.hidden = false;
+stackMotion.addEventListener("click", () => {
+  const paused = stackStrip.classList.toggle("is-paused");
+  stackMotion.setAttribute("aria-pressed", String(paused));
+  stackMotion.textContent = paused ? "Resume animation" : "Pause animation";
+});

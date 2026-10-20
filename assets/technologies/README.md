@@ -1,0 +1,1 @@
+SVG logos in this directory are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under the accompanying CC0 license. Microsoft SQL Server and Microsoft Access use the 11.15.0 icon set. Brand colors are applied locally. The HeidiSQL favicon is from [heidisql.com](https://www.heidisql.com/). Logos belong to their respective owners.

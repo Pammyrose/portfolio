@@ -97,10 +97,29 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .project-summary strong { display: block; font-size: 13px; font-weight: 600; }
 .project-summary small { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
 .project-summary>a { margin-left: auto; font-size: 20px; width: 30px; height: 36px; display: grid; place-items: center; }
-.stack-strip { max-width: 1256px; margin: auto; padding: 22px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-.stack-strip>span:first-child { font: 9px var(--mono); color: var(--muted); letter-spacing: 1px; }
-.stack-strip strong { color: var(--muted); font-weight: 550; font-size: 15px; }
-.strip-separator { color: var(--border); }
+.stack-strip { max-width: 1256px; margin: auto; }
+.stack-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 5px 13px; }
+.stack-heading h2 { margin: 0; font: 9px/1.6 var(--mono); color: var(--muted); letter-spacing: 1px; }
+.stack-heading button { border: 0; border-radius: 5px; padding: 4px 8px; background: transparent; color: var(--muted); font: 10px/1.6 var(--mono); }
+.stack-heading button:hover { background: var(--accent-soft); color: var(--highlight); }
+.stack-viewport { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 28px; background: var(--panel); box-shadow: 0 8px 18px #30233f08; }
+.stack-track { display: flex; width: max-content; min-width: 100%; }
+.stack-group { display: flex; flex: 1 0 auto; align-items: center; justify-content: space-around; gap: 14px; margin: 0; padding: 30px 7px 14px; list-style: none; }
+.stack-tile { flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 16px; background: var(--panel); box-shadow: 0 3px 5px #30233f10, 0 1px 2px #30233f08; transition: transform .2s, border-color .2s; }
+.stack-tile:hover { transform: translateY(-4px); border-color: var(--accent); }
+.stack-tile svg, .stack-tile img { display: block; width: 21px; height: 21px; object-fit: contain; }
+html[data-theme="dark"] .stack-tile-monochrome img { filter: brightness(0) invert(1); }
+.stack-strip.is-animated .stack-viewport { overflow-x: hidden; }
+.stack-strip.is-animated .stack-track { min-width: 200%; animation: stack-drift 45s linear infinite; }
+.stack-strip.is-paused .stack-track { animation-play-state: paused; }
+.stack-strip .stack-viewport:focus-visible { overflow-x: auto; }
+.stack-strip .stack-viewport:focus-visible .stack-track { animation: none; }
+@keyframes stack-drift { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .stack-strip.is-animated .stack-viewport { overflow-x: auto; }
+  .stack-strip.is-animated .stack-track { min-width: 100%; }
+  .stack-group[aria-hidden="true"], #stack-motion { display: none; }
+}
 .page-layout { max-width: 1312px; margin: auto; padding: 64px 28px 0; display: grid; grid-template-columns: 218px minmax(0,1fr); gap: 40px; align-items: start; }
 .profile { position: sticky; top: 108px; padding: 23px 20px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); }
 .profile-label { display: flex; align-items: center; gap: 8px; color: var(--highlight); font: 9px var(--mono); letter-spacing: 1px; }
@@ -198,7 +217,7 @@ dialog::backdrop { background: #151020a6; backdrop-filter: blur(6px); }.dialog-h
 @media (max-width: 700px) {
   .site-header { min-height: 72px; padding: 14px 22px; }.brand strong { font-size: 12px; }.brand small { font-size: 7px; }.brand-mark { font-size: 25px; width: 32px; }.header-actions { gap: 17px; }.header-nav { gap: 16px; }.header-nav a { font-size: 12px; }.header-nav a:last-child { display: none; }.icon-button { width: 36px; height: 36px; }
   .hero { grid-template-columns: 1fr; padding: 36px 22px 35px; gap: 25px; }.hero-copy { padding: 0; }.hero h1 { font-size: clamp(43px,9vw,59px); letter-spacing: -2px; }.hero-greeting { margin: 22px 0 13px; }.hero-description { max-width: 400px; font-size: 15px; margin: 22px 0 24px; }.hero-caption { font-size: 9px; }.hero-visual { max-width: 345px; justify-self: center; padding: 10px 12px 35px; margin-top: 8px; }.avatar { height: 295px; }.project-summary { left: -7px; right: 12px; }.portrait-backdrop { inset: 0 0 34px 10px; }.hero-actions .primary-button,.hero-actions .secondary-button { padding: 12px 17px; }
-  .stack-strip { margin: 0 22px; flex-wrap: wrap; justify-content: center; gap: 10px 16px; padding: 19px 0; }.stack-strip>span:first-child { width: 100%; text-align: center; font-size: 8px; }.stack-strip strong { font-size: 12px; }.strip-separator { font-size: 11px; }
+  .stack-strip { margin: 0 22px; }.stack-tile { border-radius: 14px; }
   .page-layout { padding: 35px 22px 0; }.profile { padding: 21px; grid-template-columns: 140px minmax(0,1fr); gap: 0 15px; }.profile h2 { font-size: 19px; }.bio { font-size: 12px; }.profile>.toolkit { gap: 5px; }.profile>.toolkit span { font-size: 8px; padding: 4px 6px; }.profile>.profile-button { font-size: 10px; padding: 8px; }
   .project-tabs { gap: 20px; }.tab-note { font-size: 8px; }.work-intro { display: block; padding: 28px 0; }.work-intro h2 { font-size: 34px; }.work-intro>p { margin-top: 18px; max-width: 420px; }.filters { flex-wrap: wrap; padding: 8px; }.search-field { flex-basis: 100%; }.filters>label:not(.search-field) { flex: 1; max-width: none; }.filters select { font-size: 12px; }
   .project-grid { grid-template-columns: 1fr; gap: 23px; }.project-card .project-art,.card-preview .screenshot-preview { height: 235px; min-height: 235px; }.card-preview .art-window { max-width: 325px; height: 190px; width: 80%; }.card-body { padding: 22px 24px; }.project-name { font-size: 28px; }.project-description { font-size: 14px; }.card-features li { font-size: 12px; }.project-subtitle { font-size: 13px; }.card-top { font-size: 10px; }.featured-badge { font-size: 9px; }.case-study-button { font-size: 12px; padding: 10px 13px; }.source-link { font-size: 12px; }.card-meta { font-size: 10px; }.project-tags span { font-size: 10px; }

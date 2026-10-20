@@ -7,7 +7,7 @@ window.portfolio = {
   initials: "PR",
   bio: "Building practical web applications that connect people, information, and everyday workflows.",
   location: "Somewhere on the internet",
-  toolkit: ["PHP", "Laravel", "Vue", "TypeScript", "JavaScript", "Tailwind CSS"],
+  toolkit: ["PHP", "Laravel", "Vue", "TypeScript", "JavaScript", "Tailwind CSS", "Bootstrap", "MySQL", "PostgreSQL", "Hostinger", "Microsoft SQL Server", "Microsoft Access", "Git", "HeidiSQL", "Figma", "Unity", "Blender"],
   projects: [
     {
       name: "ETAMS", subtitle: "A clearer view of every asset.",
