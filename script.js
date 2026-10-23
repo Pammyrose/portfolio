@@ -146,7 +146,7 @@ function openProject(project) {
   }));
   $("dialog-tags").replaceChildren(...project.tags.map(tag));
   $("dialog-links").replaceChildren();
-  [["Live demo", project.demoUrl], ["Source code", project.isPrivate ? null : project.sourceUrl]].forEach(([label, value]) => {
+  [["Source code", project.sourceUrl], ["Live demo", project.demoUrl]].forEach(([label, value]) => {
     const url = safeUrl(value);
     if (!url) return;
     const link = document.createElement("a");
@@ -157,12 +157,6 @@ function openProject(project) {
     link.className = "profile-button";
     $("dialog-links").append(link);
   });
-  if (project.isPrivate) {
-    const notice = document.createElement("span");
-    notice.className = "source-link";
-    notice.textContent = "🔒 Private — Organizational Project";
-    $("dialog-links").append(notice);
-  }
   setText("dialog-example", project.example ? "This is an example project. Add your own details and links in projects.js." : "");
   $("project-dialog").setAttribute("aria-labelledby", "dialog-title");
   $("project-dialog").showModal();
@@ -191,24 +185,8 @@ function createCard(project) {
   card.querySelector(".language-dot").dataset.language = project.language;
   card.querySelector(".language-name").textContent = project.language;
   card.querySelector(".category").textContent = project.category;
-  const sourceUrl = project.isPrivate ? null : safeUrl(project.sourceUrl);
   card.querySelector(".card-meta > span:last-child").textContent = project.isPrivate ? "Organizational project" : "GitHub repository";
-  card.querySelector(".featured-badge").hidden = !sourceUrl;
-  if (project.isPrivate) {
-    const notice = document.createElement("span");
-    notice.className = "source-link";
-    notice.textContent = "🔒 Private — Organizational Project";
-    card.querySelector(".card-actions").append(notice);
-  } else if (sourceUrl) {
-    const link = document.createElement("a");
-    link.className = "source-link";
-    link.href = sourceUrl;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "Source code ↗";
-    link.setAttribute("aria-label", `View ${project.name} source code on GitHub`);
-    card.querySelector(".card-actions").append(link);
-  }
+  card.querySelector(".featured-badge").hidden = project.isPrivate || !safeUrl(project.sourceUrl);
   return card;
 }
 

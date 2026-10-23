@@ -10,7 +10,7 @@ window.portfolio = {
   toolkit: ["PHP", "Laravel", "Vue", "TypeScript", "JavaScript", "Tailwind CSS", "Bootstrap", "MySQL", "PostgreSQL", "Hostinger", "Microsoft SQL Server", "Microsoft Access", "Git", "HeidiSQL", "Figma", "Unity", "Blender"],
   projects: [
     {
-      name: "ETAMS", subtitle: "A clearer view of every asset.",
+      name: "Asset Management System", subtitle: "A clearer view of every asset.",
       workflow: [
         { title: "Open the inventory workspace", description: "An authorized user signs in to access inventory records and administrative tools." },
         { title: "Maintain asset and employee records", description: "Create or update asset details and maintain the employee and office information used by the inventory team." },
@@ -31,10 +31,10 @@ window.portfolio = {
         "Reporting: access the administrative reporting module.",
         "Access control: authenticated workflows with administrative access restrictions."
       ],
-      language: "Vue", category: "Inventory management", artwork: "inventory", tags: ["Laravel", "Vue 3", "TypeScript", "Tailwind CSS"], featured: true, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "Vue", category: "Inventory management", artwork: "inventory", tags: ["Laravel", "Vue 3", "TypeScript", "Tailwind CSS"], featured: true, example: false, demoUrl: "https://iis.denrcar.com/denr_etams/public/", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/denr_etams"
     },
     {
-      name: "CARPIS", subtitle: "People and positions, connected.",
+      name: "Personnel Information System", subtitle: "People and positions, connected.",
       workflow: [
         { title: "Access office records", description: "Users sign in and work with personnel information according to their role and assigned office." },
         { title: "Build employee profiles", description: "Maintain personal and employment details or import employee information from Excel workbooks." },
@@ -56,10 +56,10 @@ window.portfolio = {
         "Office-scoped access: support User, Admin, and Super Admin roles across regional, provincial, and community offices.",
         "Account settings: manage profiles, passwords, and appearance preferences."
       ],
-      language: "Vue", category: "Personnel management", artwork: "personnel", tags: ["Laravel", "Vue 3", "TypeScript", "Tailwind CSS"], featured: true, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "Vue", category: "Personnel management", artwork: "personnel", tags: ["Laravel", "Vue 3", "TypeScript", "Tailwind CSS"], featured: true, example: false, demoUrl: "https://iis.denrcar.com/carpis/public/", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/denr_carpis"
     },
     {
-      name: "PMS", subtitle: "From plans to a fuller picture.",
+      name: "Performance Management System", subtitle: "From plans to a fuller picture.",
       workflow: [
         { title: "Sign in and select the reporting context", description: "Complete password and emailed-code verification, then work within the assigned office and reporting period." },
         { title: "Maintain targets and accomplishments", description: "Record physical and financial targets and their accomplishments across monthly, quarterly, and annual views." },
@@ -81,7 +81,7 @@ window.portfolio = {
         "Office-scoped access: manage users and permissions according to roles and assigned offices.",
         "Sign-in verification: authenticate with a password followed by an emailed one-time code."
       ],
-      language: "Blade", category: "Performance management", artwork: "performance", tags: ["Laravel", "PHP", "Bootstrap", "JavaScript"], featured: true, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "Blade", category: "Performance management", artwork: "performance", tags: ["Laravel", "PHP", "Bootstrap", "JavaScript"], featured: true, example: false, demoUrl: "", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/denr_pms"
     },
     {
       name: "Queuing System", subtitle: "Keep the line moving.",
@@ -103,10 +103,10 @@ window.portfolio = {
         "Customer display: present now-serving order numbers with periodic page refreshes.",
         "Display content: show a live clock alongside looping video content."
       ],
-      language: "PHP", category: "Order queue management", artwork: "queue", tags: ["PHP", "JavaScript", "Tailwind CSS", "Microsoft Access"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "PHP", category: "Order queue management", artwork: "queue", tags: ["PHP", "JavaScript", "Tailwind CSS", "Microsoft Access"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/gt_queuing-system"
     },
     {
-      name: "Time Monitoring", subtitle: "Every check-in, in view.",
+      name: "Time Monitoring System", subtitle: "Every check-in, in view.",
       workflow: [
         { title: "View daily attendance", description: "Open the daily monitoring screen to see employee attendance records with dates, times, and in/out statuses." },
         { title: "Review HR details", description: "Use the HR view to review employee IDs and device numbers alongside attendance entries." },
@@ -125,10 +125,10 @@ window.portfolio = {
         "Live display: refresh the daily monitoring screen automatically and show a live clock.",
         "Database variants: maintain separate MariaDB and SQL Server implementations."
       ],
-      language: "PHP", category: "Attendance monitoring", artwork: "attendance", tags: ["PHP", "JavaScript", "MariaDB", "SQL Server"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "PHP", category: "Attendance monitoring", artwork: "attendance", tags: ["PHP", "JavaScript", "MariaDB", "SQL Server"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/gt_time-monitoring"
     },
     {
-      name: "IT Inventory", subtitle: "IT equipment, at a glance.",
+      name: "Information Technology Inventory System", subtitle: "IT equipment, at a glance.",
       workflow: [
         { title: "Review the equipment overview", description: "Start at the dashboard to see the displayed equipment totals by category." },
         { title: "Locate the relevant category", description: "Identify the equipment group: printers, computers, laptops, robots, mobile devices, POS equipment, peripherals, or tools." },
@@ -143,7 +143,7 @@ window.portfolio = {
         "Equipment categories: printers, computers, laptops, robots, mobile devices, POS equipment, peripherals, and tools.",
         "Navigation: access dedicated asset, archive, and user sections."
       ],
-      language: "PHP", category: "IT inventory management", artwork: "inventory", tags: ["PHP", "Bootstrap", "Tailwind CSS", "JavaScript"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: ""
+      language: "PHP", category: "IT inventory management", artwork: "inventory", tags: ["PHP", "Bootstrap", "Tailwind CSS", "JavaScript"], featured: false, example: false, demoUrl: "", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/gt_it-inventory"
     }
   ]
 };
