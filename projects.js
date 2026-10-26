@@ -3,6 +3,11 @@
 window.portfolio = {
   name: "Pamela Rose",
   username: "Pammyrose",
+  github: {
+    excludedRepos: ["portfolio", "rts", "template-medical"],
+    // Existing case studies stay visible even when their repositories have no README.
+    curatedRepos: ["denr_etams", "denr_carpis", "denr_pms", "gt_queuing-system", "gt_time-monitoring", "gt_it-inventory"]
+  },
   email: "emalasan37@gmail.com",
   initials: "PR",
   bio: "Building practical web applications that connect people, information, and everyday workflows.",

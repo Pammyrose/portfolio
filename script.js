@@ -51,13 +51,14 @@ function tag(label) {
   return element;
 }
 profile.toolkit.forEach((label) => $("toolkit").append(tag(label)));
-const languages = [...new Set(profile.projects.map((project) => project.language))].sort();
-languages.forEach((language) => {
-  const option = document.createElement("option");
-  option.value = language;
-  option.textContent = language;
-  $("language-filter").append(option);
-});
+function updateLanguageFilter() {
+  const select = $("language-filter");
+  const selected = select.value;
+  const languages = [...new Set(profile.projects.map((project) => project.language))].sort();
+  select.replaceChildren(new Option("All languages", "all"), ...languages.map((language) => new Option(language, language)));
+  select.value = languages.includes(selected) ? selected : "all";
+}
+updateLanguageFilter();
 $("sample-note").hidden = !profile.projects.some((project) => project.example);
 
 // These decorative CSS previews can be reused, or replaced with your own images.
@@ -277,6 +278,23 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 updateNavigation();
 renderProjects();
+
+async function loadGitHubProjects() {
+  const status = $("github-status");
+  status.hidden = false;
+  status.textContent = "Checking GitHub for more projects…";
+  try {
+    const projects = await window.githubProjects.load(profile);
+    profile.projects.push(...projects);
+    updateLanguageFilter();
+    renderProjects();
+    status.hidden = true;
+  } catch (error) {
+    status.textContent = "GitHub projects are temporarily unavailable. You can still explore the selected work below.";
+    console.warn("Could not load GitHub projects:", error);
+  }
+}
+loadGitHubProjects();
 
 // Repeat logos visually for the loop, while keeping one accessible tool list.
 const stackStrip = document.querySelector(".stack-strip");
