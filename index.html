@@ -6,10 +6,10 @@
   <meta name="description" content="Pamela Rose's development portfolio. Explore Asset Management System, Personnel Information System, Performance Management System, Queuing System, and Time Monitoring System: applications for organized everyday workflows.">
   <meta name="color-scheme" content="light dark">
   <title>Pamela Rose · Developer portfolio</title>
-  <link rel="stylesheet" href="./styles.css?v=11">
+  <link rel="stylesheet" href="./styles.css?v=12">
   <script src="./projects.js?v=7" defer></script>
   <script src="./github-projects.js?v=3" defer></script>
-  <script src="./script.js?v=9" defer></script>
+  <script src="./script.js?v=10" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#projects">Skip to projects</a>
@@ -77,6 +77,13 @@
         <label><span class="sr-only">Filter by language</span><select id="language-filter"><option value="all">All languages</option></select></label>
         <label><span class="sr-only">Filter by project type</span><select id="category-filter"><option value="all">All project types</option><option value="Web-based System">Web-based System</option><option value="Web App">Web App</option><option value="Mobile App">Mobile App</option></select></label>
         <label><span class="sr-only">Sort projects</span><select id="project-sort"><option value="featured">Featured first</option><option value="name">Name: A–Z</option></select></label>
+      </div>
+      <div class="project-categories" role="group" aria-label="Filter projects by category">
+        <span class="project-categories-label">Categories</span>
+        <button class="category-chip is-active" type="button" data-project-type="all" aria-pressed="true">All projects</button>
+        <button class="category-chip" type="button" data-project-type="Web-based System" aria-pressed="false">Web-based System</button>
+        <button class="category-chip" type="button" data-project-type="Web App" aria-pressed="false">Web App</button>
+        <button class="category-chip" type="button" data-project-type="Mobile App" aria-pressed="false">Mobile App</button>
       </div>
       <p id="sample-note" class="sample-note">Example collection · Replace these projects with your own in <code>projects.js</code>.</p>
       <p id="github-status" class="sample-note" role="status" aria-live="polite" hidden></p>

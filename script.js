@@ -208,12 +208,21 @@ function renderProjects() {
     ? (a, b) => a.name.localeCompare(b.name)
     : (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
   $("project-grid").replaceChildren(...visible.map(createCard));
+  document.querySelectorAll(".category-chip").forEach((button) => {
+    const active = button.dataset.projectType === category;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
   setText("results-count", visible.length === 0 ? "No matching projects" : query || language !== "all" ? "Showing matching projects" : "");
   $("empty-state").hidden = visible.length !== 0;
 }
 $("project-search").addEventListener("input", renderProjects);
 $("language-filter").addEventListener("change", renderProjects);
 $("category-filter").addEventListener("change", renderProjects);
+document.querySelectorAll(".category-chip").forEach((button) => button.addEventListener("click", () => {
+  $("category-filter").value = button.dataset.projectType;
+  renderProjects();
+}));
 $("project-sort").addEventListener("change", renderProjects);
 $("reset-filters").addEventListener("click", () => {
   $("project-search").value = "";
