@@ -198,7 +198,10 @@ function renderProjects() {
   const visible = profile.projects.filter((project) => {
     const searchable = [project.name, project.description, project.language, project.category, ...project.tags, ...(project.features || []), ...(project.highlights || [])].join(" ").toLowerCase();
     const stack = project.tags.join(" ").toLowerCase();
-    const projectType = /\b(dart|flutter)\b/.test(stack) ? "Mobile App" : "Web-based System";
+    const context = [project.name, project.description, project.subtitle, ...project.tags].join(" ").toLowerCase();
+    const projectType = project.projectType || (/\b(dart|flutter)\b/.test(stack)
+      ? "Mobile App"
+      : /\b(web app|web application|website)\b/.test(context) ? "Web App" : "Web-based System");
     return searchable.includes(query) && (language === "all" || project.language === language) && (category === "all" || category === projectType);
   });
   visible.sort($("project-sort").value === "name"
