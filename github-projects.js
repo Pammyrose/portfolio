@@ -10,6 +10,23 @@ window.githubProjects = (() => {
     return "Web-based System";
   }
 
+  const technologyGroups = {
+    language: ["C", "C++", "C#", "Dart", "Go", "Java", "JavaScript", "Kotlin", "PHP", "Python", "Ruby", "Rust", "Swift", "TypeScript"],
+    framework: ["Angular", "Astro", "Django", "Express", "Flask", "Flutter", "Laravel", "Next.js", "Nuxt", "React", "Svelte", "Tailwind CSS", "Vue"],
+    database: ["Firebase", "Firestore", "MariaDB", "Microsoft Access", "Microsoft SQL Server", "MongoDB", "MySQL", "PostgreSQL", "Redis", "SQLite", "Supabase"]
+  };
+
+  function stackTechnologies(language, topics, documented) {
+    const candidates = [language, ...topics, ...documented].filter((value) => typeof value === "string");
+    return [...new Set(candidates.flatMap((candidate) => {
+      const normalized = candidate.toLowerCase().replace(/\s+/g, " ").trim();
+      return Object.values(technologyGroups).flat().filter((name) => {
+        const needle = name.toLowerCase();
+        return normalized === needle || new RegExp(`(^|[^a-z0-9])${needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z0-9]|$)`, "i").test(candidate);
+      });
+    }))];
+  }
+
   function readmeText(readme) {
     if (typeof readme.content !== "string" || readme.encoding !== "base64") return "";
     try {
@@ -114,7 +131,7 @@ window.githubProjects = (() => {
           const language = repo.language || "Other";
           const topics = Array.isArray(repo.topics) ? repo.topics : [];
           const details = readmeDetails(readmeText(readme), repo.description || `Explore ${repo.name} on GitHub for documentation and project details.`);
-          const tags = [...new Set([language, ...topics, ...details.technologies])];
+          const tags = stackTechnologies(language, topics, details.technologies);
           const isSpendTracker = normalize(repo.name) === "spendtracker";
           const projectImage = await findProjectImage(owner, repo.name, repo.default_branch, request);
           projects[index] = {

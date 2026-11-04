@@ -4,7 +4,7 @@ Static portfolio hosted from this repository. Open `index.html` through a local 
 
 ## Automatic GitHub projects
 
-On each page load, `github-projects.js` checks the public repositories owned by the username in `projects.js`. New repositories appear automatically once GitHub recognizes a README on their default branch. Imported entries use the repository name, description, primary language, topics, homepage, and source link. README text can also supply a project description, a Features list, and technologies from a Technology Stack, Technologies, or Built With section. They are labeled as personal projects, with a Public badge.
+On each page load, `github-projects.js` checks the public repositories owned by the username in `projects.js`. New repositories appear automatically once GitHub recognizes a README on their default branch. Imported entries use the repository name, description, homepage, and source link. Their technology stack is limited to recognized programming languages, frameworks, and databases found in GitHub metadata or a README Technology Stack, Technologies, or Built With section. README text can also supply a project description and a Features list. They are labeled as personal projects, with a Public badge.
 
 `portfolio`, `rts`, and `template-medical` are excluded. Edit `github.excludedRepos` in `projects.js` to change the exclusions.
 
