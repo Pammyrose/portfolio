@@ -10,6 +10,53 @@ window.githubProjects = (() => {
     return "Web-based System";
   }
 
+  function readmeText(readme) {
+    if (typeof readme.content !== "string" || readme.encoding !== "base64") return "";
+    try {
+      const bytes = Uint8Array.from(atob(readme.content.replace(/\s/g, "")), (character) => character.charCodeAt(0));
+      return new TextDecoder().decode(bytes);
+    } catch {
+      return "";
+    }
+  }
+
+  function readmeDetails(markdown, fallback) {
+    const lines = markdown.replace(/\r/g, "").split("\n");
+    const sections = [];
+    let section = { title: "", lines: [] };
+    for (const line of lines) {
+      const heading = line.match(/^#{1,3}\s+(.+?)\s*#*\s*$/);
+      if (heading) {
+        sections.push(section);
+        section = { title: heading[1].replace(/[*_`]/g, "").trim().toLowerCase(), lines: [] };
+      } else {
+        section.lines.push(line);
+      }
+    }
+    sections.push(section);
+
+    const clean = (value) => value
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .replace(/<[^>]+>/g, "")
+      .replace(/[`*_>#]/g, "")
+      .replace(/\s+/g, " ").trim();
+    const description = lines
+      .filter((line) => line.trim() && !/^\s*(#|!\[|\[!|<)/.test(line))
+      .map(clean).find((line) => line.length > 35) || fallback;
+    const featureSection = sections.find(({ title }) => /^(features?|what it does|functionality)$/.test(title));
+    const features = featureSection ? featureSection.lines
+      .filter((line) => /^\s*[-*+]\s+/.test(line))
+      .map((line) => clean(line.replace(/^\s*[-*+]\s+/, "")))
+      .filter(Boolean).slice(0, 8) : [];
+    const stackSection = sections.find(({ title }) => /^(tech stack|technology stack|technologies|built with|tools? and technologies|dependencies)$/.test(title));
+    const technologies = stackSection ? stackSection.lines
+      .map((line) => line.replace(/^\s*(?:[-*+]\s+|\d+\.\s+)/, ""))
+      .flatMap((line) => line.split(/[,|;]/))
+      .map(clean).filter((item) => item && item.length < 50 && !/^https?:\/\//i.test(item)).slice(0, 20) : [];
+    return { description, features, technologies };
+  }
+
   async function findProjectImage(owner, repo, branch, request) {
     if (!branch) return "";
     const response = await request(`/repos/${owner}/${encodeURIComponent(repo)}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
@@ -66,12 +113,13 @@ window.githubProjects = (() => {
           if (readme.type !== "file") continue;
           const language = repo.language || "Other";
           const topics = Array.isArray(repo.topics) ? repo.topics : [];
-          const tags = [...new Set([language, ...topics])];
+          const details = readmeDetails(readmeText(readme), repo.description || `Explore ${repo.name} on GitHub for documentation and project details.`);
+          const tags = [...new Set([language, ...topics, ...details.technologies])];
           const isSpendTracker = normalize(repo.name) === "spendtracker";
           const projectImage = await findProjectImage(owner, repo.name, repo.default_branch, request);
           projects[index] = {
             name: repo.name.replace(/[-_]+/g, " "),
-            description: repo.description || `Explore ${repo.name} on GitHub for documentation and project details.`,
+            description: details.description,
             subtitle: "Public GitHub project",
             category: projectCategory(tags),
             language,
@@ -83,7 +131,7 @@ window.githubProjects = (() => {
                 : `${repo.name.replace(/[-_]+/g, " ")} project screenshot.`
             } : {}),
             artwork: "terminal",
-            features: ["Project documentation available in the GitHub README."],
+            features: details.features,
             featured: false,
             example: false,
             isPrivate: false,
