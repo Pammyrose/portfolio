@@ -86,7 +86,7 @@ window.portfolio = {
         "Office-scoped access: manage users and permissions according to roles and assigned offices.",
         "Sign-in verification: authenticate with a password followed by an emailed one-time code."
       ],
-      language: "Blade", category: "Performance management", artwork: "performance", tags: ["Laravel", "PHP", "Bootstrap", "JavaScript"], featured: true, example: false, demoUrl: "", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/denr_pms"
+      language: "Blade", category: "Performance management", artwork: "performance", tags: ["Laravel", "PHP", "Bootstrap", "JavaScript"], featured: true, example: false, demoUrl: "https://iis.denrcar.com/denr_pms/public/", isPrivate: true, sourceUrl: "https://github.com/Pammyrose/denr_pms"
     },
     {
       name: "Queuing System", subtitle: "Keep the line moving.",
