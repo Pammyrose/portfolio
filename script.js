@@ -188,7 +188,7 @@ function createCard(project) {
   card.querySelector(".category").textContent = project.category;
   card.querySelector(".card-meta > span:last-child").textContent = project.isPrivate ? "Organizational project" : "GitHub repository";
   card.querySelector(".featured-badge").hidden = project.isPrivate || !safeUrl(project.sourceUrl);
-  return car;
+  return card;
 }
 
 let selectedProjectType = "all";
