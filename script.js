@@ -191,17 +191,16 @@ function createCard(project) {
   return card;
 }
 
+let selectedProjectType = "all";
 function renderProjects() {
   const query = $("project-search").value.trim().toLowerCase();
   const language = $("language-filter").value;
-  const category = $("category-filter").value;
+  const category = selectedProjectType;
   const visible = profile.projects.filter((project) => {
     const searchable = [project.name, project.description, project.language, project.category, ...project.tags, ...(project.features || []), ...(project.highlights || [])].join(" ").toLowerCase();
     const stack = project.tags.join(" ").toLowerCase();
     const context = [project.name, project.description, project.subtitle, ...project.tags].join(" ").toLowerCase();
-    const projectType = project.projectType || (/\b(dart|flutter)\b/.test(stack)
-      ? "Mobile App"
-      : /\b(web app|web application|website)\b/.test(context) ? "Web App" : "Web-based System");
+    const projectType = project.projectType || (/\b(dart|flutter)\b/.test(stack) ? "Mobile App" : "Web-based System");
     return searchable.includes(query) && (language === "all" || project.language === language) && (category === "all" || category === projectType);
   });
   visible.sort($("project-sort").value === "name"
@@ -218,16 +217,15 @@ function renderProjects() {
 }
 $("project-search").addEventListener("input", renderProjects);
 $("language-filter").addEventListener("change", renderProjects);
-$("category-filter").addEventListener("change", renderProjects);
 document.querySelectorAll(".category-chip").forEach((button) => button.addEventListener("click", () => {
-  $("category-filter").value = button.dataset.projectType;
+  selectedProjectType = button.dataset.projectType;
   renderProjects();
 }));
 $("project-sort").addEventListener("change", renderProjects);
 $("reset-filters").addEventListener("click", () => {
   $("project-search").value = "";
   $("language-filter").value = "all";
-  $("category-filter").value = "all";
+  selectedProjectType = "all";
   renderProjects();
   $("project-search").focus();
 });
